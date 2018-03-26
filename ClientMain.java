@@ -45,7 +45,7 @@ public class ClientMain {
 	}
 	
 	public static void main (String[] args) throws RemoteException {
-		System.setProperty("java.security.policy", "file:///tmp/test.policy");
+		System.setProperty("java.security.policy", "file:./policy.policy");
 		if (System.getSecurityManager() == null) {
 			System.setSecurityManager(new SecurityManager());
 		}
