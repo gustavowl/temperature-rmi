@@ -8,7 +8,7 @@ public interface TemperatureInterface extends Remote {
 	}
 	
 	public static String getServerName(String cityName) throws RemoteException {
-		return "TemperatureServer/" + cityName.trim().toLowerCase().replace(' ', '_');
+		return "Temperature/" + cityName.trim().toLowerCase().replace(' ', '_');
 	}
 	
 	public int getTemperature() throws RemoteException;

@@ -45,6 +45,11 @@ public class ClientMain {
 	}
 	
 	public static void main (String[] args) throws RemoteException {
+		System.setProperty("java.security.policy", "file:///tmp/test.policy");
+		if (System.getSecurityManager() == null) {
+			System.setSecurityManager(new SecurityManager());
+		}
+		
 		client = new TemperatureClient();
 		
 		//System.out.println("Type client name: ");

@@ -3,6 +3,9 @@ import java.net.MalformedURLException;
 import java.rmi.AlreadyBoundException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.Scanner;
 
 public class ServerMain {
@@ -22,7 +25,9 @@ public class ServerMain {
 		//valid city entered. Bind object to rmi
 		try {
 			TemperatureServer server = new TemperatureServer(cityName);
-			Naming.bind(server.getServerName(), server);
+			Registry registry = LocateRegistry.getRegistry(1099);
+			//Naming.bind(server.getServerName(), server);
+			registry.rebind(server.getServerName(), server);
 			System.out.println("RMI Object name: " + server.getServerName());
 		}
 		catch (RemoteException e) {

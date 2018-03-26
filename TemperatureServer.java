@@ -32,6 +32,13 @@ public class TemperatureServer extends UnicastRemoteObject implements Temperatur
 	}
 	
 	public static void main (String args[]) throws MalformedURLException, AlreadyBoundException {
+		
+		System.setProperty("java.security.policy", "file:///tmp/test.policy");
+		
+		if (System.getSecurityManager() == null) {
+			System.setSecurityManager(new SecurityManager());
+		}
+		
 		try {
 			ServerMain.main(args);
 		} catch (RemoteException e) {
