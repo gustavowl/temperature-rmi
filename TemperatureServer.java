@@ -3,12 +3,7 @@ import java.net.MalformedURLException;
 import java.rmi.*;
 import java.rmi.server.*;
 
-public class TemperatureServer extends UnicastRemoteObject implements TemperatureInterface {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class TemperatureServer /*extends UnicastRemoteObject*/ implements TemperatureInterface {
 	
 	String serverName;
 
@@ -18,7 +13,7 @@ public class TemperatureServer extends UnicastRemoteObject implements Temperatur
 	
 	public TemperatureServer(String cityName) throws RemoteException {
 		super();
-		this.serverName = TemperatureInterface.getServerName(cityName);
+		serverName = TemperatureInterface.getServerName(cityName);
 	}
 
 	@Override
@@ -27,9 +22,9 @@ public class TemperatureServer extends UnicastRemoteObject implements Temperatur
 		return 73;
 	}
 	
-	public String getServerName() {
+	/*public String getServerName() {
 		return serverName;
-	}
+	}*/
 	
 	public static void main (String args[]) throws MalformedURLException, AlreadyBoundException {
 		
@@ -45,6 +40,11 @@ public class TemperatureServer extends UnicastRemoteObject implements Temperatur
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public String getName() throws RemoteException {
+		return serverName;
 	}
 
 }

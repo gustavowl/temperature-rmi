@@ -12,4 +12,6 @@ public interface TemperatureInterface extends Remote {
 	}
 	
 	public int getTemperature() throws RemoteException;
+	
+	public String getName() throws RemoteException;
 }

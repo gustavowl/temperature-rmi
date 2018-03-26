@@ -24,11 +24,12 @@ public class ServerMain {
 		
 		//valid city entered. Bind object to rmi
 		try {
-			TemperatureServer server = new TemperatureServer(cityName);
+			TemperatureInterface server = new TemperatureServer(cityName);
+			TemperatureInterface stub = (TemperatureInterface) UnicastRemoteObject.exportObject(server, 0);
 			Registry registry = LocateRegistry.getRegistry(1099);
 			//Naming.bind(server.getServerName(), server);
-			registry.rebind(server.getServerName(), server);
-			System.out.println("RMI Object name: " + server.getServerName());
+			registry.rebind(stub.getName(), stub);
+			System.out.println("RMI Object name: " + stub.getName());
 		}
 		catch (RemoteException e) {
 			System.err.println("Server exception: " + e.toString());
