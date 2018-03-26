@@ -28,7 +28,7 @@ public class TemperatureClient {
 		String serverName = TemperatureInterface.getServerName(cityName);
 		try {
 			TemperatureInterface server = (TemperatureInterface) Naming.lookup(
-					"//localhost/" + serverName);
+					"//192.168.0.97/" + serverName);
 			/*String serverIp = "192.168.0.97";
 			int serverPort = 1099;
 			Registry registry = LocateRegistry.getRegistry(serverIp, serverPort);
