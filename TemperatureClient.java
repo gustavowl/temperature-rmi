@@ -24,16 +24,12 @@ public class TemperatureClient {
 		return name;
 	}
 	
-	public int getCityTemperature(String cityName) throws RemoteException {
+	public double getCityTemperature(String cityName, String scale) throws RemoteException {
 		String serverName = TemperatureInterface.getServerName(cityName);
 		try {
 			TemperatureInterface server = (TemperatureInterface) Naming.lookup(
-					"//192.168.0.97/" + serverName);
-			/*String serverIp = "192.168.0.97";
-			int serverPort = 1099;
-			Registry registry = LocateRegistry.getRegistry(serverIp, serverPort);
-			TemperatureInterface server = (TemperatureInterface) registry.lookup(serverName);*/
-			return server.getTemperature();
+					"//192.168.0.97/TemperatureServer");
+			return server.getTemperature(cityName, scale);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

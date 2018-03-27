@@ -11,7 +11,7 @@ public interface TemperatureInterface extends Remote {
 		return "Temperature_" + cityName.trim().toLowerCase().replace(' ', '_');
 	}
 	
-	public int getTemperature() throws RemoteException;
+	public double getTemperature(String city, String scale) throws RemoteException;
 	
-	public String getName() throws RemoteException;
+	//public String getName() throws RemoteException;
 }
