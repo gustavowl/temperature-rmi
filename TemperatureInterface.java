@@ -12,6 +12,4 @@ public interface TemperatureInterface extends Remote {
 	}
 	
 	public double getTemperature(String city, String scale) throws RemoteException;
-	
-	//public String getName() throws RemoteException;
 }

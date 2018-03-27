@@ -39,21 +39,18 @@ public class TemperatureServer extends UnicastRemoteObject implements Temperatur
 
     public static void main (String args[]) throws MalformedURLException, AlreadyBoundException {
 
-        /*System.setProperty("java.security.policy", "file:///tmp/test.policy");
-
-        if (System.getSecurityManager() == null) {
-            System.setSecurityManager(new SecurityManager());
-        }*/
-
         try {
             TemperatureServer ts = new TemperatureServer();
-            //System.setProperty("java.rmi.server.hostname", "192.168.0.97");
             Naming.rebind("TemperatureServer", ts);
-            ServerMain.printRmiObject("TemperatureServer");
+            TemperatureServer.printRmiObject("TemperatureServer");
         } catch (RemoteException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
+    
+	private static void printRmiObject(String str) {
+		System.out.println("RMI Object name: " + str);
+	}
 
 }
