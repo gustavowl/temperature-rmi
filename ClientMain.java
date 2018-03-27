@@ -16,7 +16,7 @@ public class ClientMain {
 		//System.out.println("Type client name: ");
 		client.setName("localhost");
 		
-		System.out.println("Temperature is " + client.getCityTemperature(args[0], args[1]) + args[1]);
+		System.out.println("Temperature is " + client.getCityTemperature(args[0], args[1], args[2]) + args[1]);
 	}
 
 }

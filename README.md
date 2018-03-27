@@ -12,8 +12,12 @@ Note: 2 terminals are needed. Check names before the "$"
 # Compile Client Side
 ```
 Terminal3$ javac TemperatureInterface.java *Client*.java
-Terminal3$ java ClientMain <arg1> <arg2>
+Terminal3$ java ClientMain <arg1> <arg2> <arg3>
 ```
-<arg1> is the City name, e.g. Natal, Fortaleza, London
-<arg2> is the Temperature scale(?) "C" for Celsius or "F" for fahrenheit
+\<arg1\> is the City name, e.g. Natal, Fortaleza, London
+
+\<arg2\> is the Temperature scale(?) "C" for Celsius or "F" for fahrenheit
+
+\<arg3\> IP Address of the Server (same as "IP.AD.DR.ES" used on the third bash command on the previous section)
+
 Note: remember to update the server IP address accodingly (TemperatureClient.java:30)
