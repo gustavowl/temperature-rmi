@@ -36,7 +36,7 @@ public class TemperatureServer extends UnicastRemoteObject implements Temperatur
 		
 		try {
 			TemperatureServer ts = new TemperatureServer(ServerMain.readCityName());
-			System.setProperty("java.rmi.server.hostname", "192.168.0.97");
+			//System.setProperty("java.rmi.server.hostname", "192.168.0.97");
 			Naming.rebind(ts.serverName, ts);
 			ServerMain.printRmiObject(ts.serverName);
 		} catch (RemoteException e) {
